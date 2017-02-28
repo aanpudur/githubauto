@@ -1,16 +1,12 @@
 package com.githubauto.webdriver;
 
 import java.util.concurrent.TimeUnit;
-
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-
 
 public class Main {
-  static String username = "dummyUsername";
-  static String password = "Dummypassword";
+  static String username = "dummyusername";
+  static String password = "dummypassword";
 
   public static void main(String[] args) {
     
@@ -18,10 +14,8 @@ public class Main {
     WebDriver driver = new ChromeDriver();
     driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
                  
-    GithubHomePage home = new GithubHomePage(driver);
-    home.DoSignin();
-    
-    GithubLoginPage loginPage = new GithubLoginPage(driver);
+    GithubHomePage home = new GithubHomePage(driver); 
+    GithubLoginPage loginPage = home.DoSignin();
     loginPage.DoLogin(username, password);   
   }
 

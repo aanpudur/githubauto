@@ -13,7 +13,7 @@ public class GithubHomePage {
   
   public GithubLoginPage DoSignin(){
     driver.get("https://github.com");
-    driver.findElement(By.linkText("Sign in")).click();     
+    driver.findElement(By.linkText("Sign in")).click();;     
     return new GithubLoginPage(driver);
    
   }
