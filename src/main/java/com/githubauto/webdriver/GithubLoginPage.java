@@ -14,8 +14,7 @@ public class GithubLoginPage {
     driver.findElement(By.name("login")).sendKeys(username);
     driver.findElement(By.name("password")).sendKeys(password);
     driver.findElement(By.name("commit")).click();    
-      
-    
+         
   }
 
 }
