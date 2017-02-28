@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class GithubLoginPage {
- private WebDriver driver = null;
+ private WebDriver driver;
   
   public GithubLoginPage(WebDriver driver){
     this.driver = driver;        

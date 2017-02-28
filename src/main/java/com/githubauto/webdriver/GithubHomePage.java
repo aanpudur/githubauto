@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class GithubHomePage {
   
-  private WebDriver driver = null;
+  private WebDriver driver;
    
   public GithubHomePage(WebDriver driver){
     this.driver = driver;
@@ -16,7 +16,6 @@ public class GithubHomePage {
   }  
   
   public GithubLoginPage gotoSigninPage(){
-    driver.get("https://github.com");
     driver.findElement(By.linkText("Sign in")).click();;     
     return new GithubLoginPage(driver);   
   }
