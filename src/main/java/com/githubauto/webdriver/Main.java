@@ -15,8 +15,8 @@ public class Main {
     driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
                  
     GithubHomePage home = new GithubHomePage(driver); 
-    GithubLoginPage loginPage = home.DoSignin();
-    loginPage.DoLogin(username, password);   
+    GithubLoginPage loginPage = home.gotoSigninPage();
+    loginPage.login(username, password);   
   }
 
 }

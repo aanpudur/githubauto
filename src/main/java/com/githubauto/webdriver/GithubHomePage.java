@@ -11,10 +11,13 @@ public class GithubHomePage {
     this.driver = driver;
   }
   
-  public GithubLoginPage DoSignin(){
+  public void loadUrl(String url){
+    driver.get(url);     
+  }  
+  
+  public GithubLoginPage gotoSigninPage(){
     driver.get("https://github.com");
     driver.findElement(By.linkText("Sign in")).click();;     
-    return new GithubLoginPage(driver);
-   
+    return new GithubLoginPage(driver);   
   }
 }
