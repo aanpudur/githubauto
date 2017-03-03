@@ -3,7 +3,6 @@ package excercise7;
 public class MultiplyOperator implements Operator {
   
  int multiplicationResult;
-
   
   @Override
   public int execute(int number1, int number2) {
@@ -13,9 +12,6 @@ public class MultiplyOperator implements Operator {
   
   @Override 
   public String toString(){     
-    return "multiplication operator ";    
+    return "multiplication operator";    
   }
-  
-  
-
 }

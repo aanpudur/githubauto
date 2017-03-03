@@ -14,5 +14,4 @@ public class DivideOperator implements Operator{
   public String toString(){     
     return "Division operator ";    
   }
-
 }
