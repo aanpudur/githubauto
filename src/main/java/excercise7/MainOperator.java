@@ -23,6 +23,8 @@ static int num2 = 24;
     System.out.println("toString method returns:: " +divide.toString());
     System.out.println("result of " + num1 + "/" + num2 + " is: " + division + "\n");
     System.out.println("toString method returns:: " + substract.toString());
-    System.out.println("result of " + num1 + "-" + num2 + " is: " +  substraction + "\n"); 
+    System.out.println("result of " + num1 + "-" + num2 + " is: " +  substraction + "\n");
+    
+    
   }
 }
