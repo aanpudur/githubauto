@@ -21,55 +21,34 @@ import sun.net.NetworkServer;
 public class GithubHomeTest {
 	
 	String url = "https://github.com/";
-	String expectedTitle = "The world's leading software development platform · GitHub";
-	String expFeatureTitle = "Features For Collaborative Coding - Developers Work Better, Together | "
-			+ "GitHub · GitHub";
-	String exploreTitle = "Features For Collaborative Coding - Developers Work Better, Together | GitHub · GitHub";
+	String home = "The world's leading software development platform · GitHub";
+	String feature = "Features For Collaborative Coding - Developers Work Better, Together | GitHub · GitHub";
+	String explore = "Explore · GitHub";
 	
 	@Test
-	public void verifyGithubTitleWithoutLogin(){	
-		//System.setProperty("webdriver.chrome.driver", "/Users/aanvazhapilly/Downloads/chromedriver");
-		 SetChromeProp chrome = new SetChromeProp();	
-		 chrome.setDriver();
-		 WebDriver driver  = new ChromeDriver();
-		
-		 GithubHomePage homepage = new GithubHomePage(driver);
+	public void verifyGithubTitleWithoutLogin(){		
+		 GithubHomePage homepage = new GithubHomePage();
 		 homepage.loadUrl(url);
+		 
 		 String title = homepage.getTitle();
-		 Assert.assertEquals(expectedTitle, title);	    
+		 System.out.println(title);
+		 Assert.assertEquals(home, title);	    
 		  }
 	
 	@Test
 	public void GithubFeaturesTest(){		
-		 //System.setProperty("webdriver.chrome.driver", "/Users/aanvazhapilly/Downloads/chromedriver");
-		 SetChromeProp chrome = new SetChromeProp();	
-		 chrome.setDriver();
-		 WebDriver driver = new ChromeDriver();
-		 
-		 GithubHomePage home = new GithubHomePage(driver);
+		
+		 GithubHomePage home = new GithubHomePage();
 		 home.loadUrl(url);
 		 home.gotoFeatures();
 				 
-		 GitHubFeatures featurePage = new GitHubFeatures(driver);	 		
+		 GitHubFeatures featurePage = new GitHubFeatures();	 		
 		 String actFeatureTitle = featurePage.getTitle();
-		 Assert.assertEquals(expFeatureTitle, actFeatureTitle);	    
+		 System.out.println("feature : " + actFeatureTitle);
+		 Assert.assertEquals( feature, actFeatureTitle);	    
 		  }	
 	
-	@Test
-	public void explorePageTest(){		
-		 //System.setProperty("webdriver.chrome.driver", "/Users/aanvazhapilly/Downloads/chromedriver");
-		 SetChromeProp chrome = new SetChromeProp();	
-		 chrome.setDriver();
-		 WebDriver driver = new ChromeDriver();
-		 
-		 GithubHomePage home = new GithubHomePage(driver);
-		 home.loadUrl(url);
-		 home.gotoFeatures();
-				 
-		 GitHubFeatures featurePage = new GitHubFeatures(driver);	 		
-		 String actExploreTitle = featurePage.getTitle();
-		 Assert.assertEquals(exploreTitle, actExploreTitle);	    
-		  }	
+
 	}
 	
 	
