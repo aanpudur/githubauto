@@ -26,6 +26,6 @@ public class GithubHomePage{
   
   public GithubLoginPage gotoSigninPage(){
     driver.findElement(By.linkText("Sign in")).click();;     
-    return new GithubLoginPage();   
+    return new GithubLoginPage(driver);   
   } 
 }

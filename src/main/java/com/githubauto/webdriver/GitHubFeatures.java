@@ -10,7 +10,6 @@ public class GitHubFeatures {
 		  this.driver=driver;
 	  }
 	  
-
 	 public void loadUrl(String url){
 		    driver.get(url);     
 		  }
