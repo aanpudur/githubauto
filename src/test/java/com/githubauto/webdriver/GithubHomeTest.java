@@ -28,11 +28,7 @@ public class GithubHomeTest {
 		Assert.assertEquals(home, title);
 	}
 	
-	@Test
-	public void GithubSearch(){
-		
-		
-	}
+	
 
 	@Test
 	public void GithubFeaturesTest() {
@@ -50,7 +46,8 @@ public class GithubHomeTest {
 	public void verifySeachReaults(){
 		GithubHomePage home = new GithubHomePage(driver);
 		home.loadUrl(url);
-		home.search("hibernate");		
+		home.search("hibernate");	
+		home.getSearchResults();
 		
 	}
 	
