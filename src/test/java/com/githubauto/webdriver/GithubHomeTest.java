@@ -18,7 +18,7 @@ public class GithubHomeTest {
 	String home = "The world's leading software development platform · GitHub";
 	String feature = "Features For Collaborative Coding - Developers Work Better, Together | GitHub · GitHub";
 	
-	@Test
+	@Ignore
 	public void verifyGithubTitleWithoutLogin() {
 		GithubHomePage homepage = new GithubHomePage(driver);
 		homepage.loadUrl(url);
@@ -28,27 +28,24 @@ public class GithubHomeTest {
 		Assert.assertEquals(home, title);
 	}
 	
-	
-
 	@Test
 	public void GithubFeaturesTest() {
-
 		GithubHomePage home = new GithubHomePage(driver);
 		home.loadUrl(url);
 		home.gotoFeatures();
 
 		GitHubFeatures featurePage = new GitHubFeatures(driver);
 		String actFeatureTitle = featurePage.getTitle();
-		System.out.println("feature : " + actFeatureTitle);
 		Assert.assertEquals(feature, actFeatureTitle);
 	}
 	@Test
 	public void verifySeachReaults(){
 		GithubHomePage home = new GithubHomePage(driver);
 		home.loadUrl(url);
-		home.search("hibernate");	
-		home.getSearchResults();
-		
+		SearchPage page = new SearchPage(driver);
+		page.search("hibernate");
+		page.getSearchResults();
+						
 	}
 	
 }
