@@ -1,15 +1,10 @@
 package com.githubauto.webdriver;
 
-import java.util.concurrent.TimeUnit;
-
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-
-import sun.net.NetworkServer;
+//import org.openqa.selenium.chrome.ChromeDriver;
 
 public class GithubHomeTest {
 
@@ -32,6 +27,12 @@ public class GithubHomeTest {
 		System.out.println(title);
 		Assert.assertEquals(home, title);
 	}
+	
+	@Test
+	public void GithubSearch(){
+		
+		
+	}
 
 	@Test
 	public void GithubFeaturesTest() {
@@ -45,4 +46,12 @@ public class GithubHomeTest {
 		System.out.println("feature : " + actFeatureTitle);
 		Assert.assertEquals(feature, actFeatureTitle);
 	}
+	@Test
+	public void verifySeachReaults(){
+		GithubHomePage home = new GithubHomePage(driver);
+		home.loadUrl(url);
+		home.search("hibernate");		
+		
+	}
+	
 }
