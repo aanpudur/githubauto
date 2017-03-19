@@ -7,10 +7,10 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class SearchPage {
+public class SearchResultsPage {
 	WebDriver driver;
 
-	public SearchPage(WebDriver driver) {
+	public SearchResultsPage(WebDriver driver) {
 		this.driver = driver;
 	}
 
@@ -18,34 +18,20 @@ public class SearchPage {
 		driver.get(url);
 	}
 
-	public SearchResults search(String input) {
-		WebElement searchInput = driver.findElement(By.name("q"));
-		searchInput.sendKeys(input);
-		searchInput.click();
-		searchInput.sendKeys(Keys.ENTER);
-
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return new SearchResults();
-	}
-
-	public void numberOfTitles() {
+	public void numberOfTitle() {
 		List<WebElement> resultList = driver
 				.findElements(By.xpath("//*[@id='js-pjax-container']/div[2]/div/div[2]/ul/li[*]"));
 		System.out.println("Number of search results are: " + resultList.size());
 		System.out.println("*************************************");
 	}
 
-	public void getSearchResults() {
+	public List<WebElement> getSearchResults() {
 		List<WebElement> resultList = driver
 				.findElements(By.xpath("//*[@id='js-pjax-container']/div[2]/div/div[2]/ul/li[*]"));
-		
+
 		for (WebElement element : resultList) {
 			System.out.println(element.findElement(By.tagName("h3")).getText());
 		}
+		return resultList;
 	}
 }
