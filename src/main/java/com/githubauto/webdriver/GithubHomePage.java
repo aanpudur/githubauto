@@ -30,32 +30,17 @@ public class GithubHomePage{
   public GithubLoginPage gotoSigninPage(){
     driver.findElement(By.linkText("Sign in")).click();;     
     return new GithubLoginPage(driver);   
-  } 
-  
-  public  SearchResultPage search(String input){
-	  WebElement searchInput = driver.findElement(By.name("q"));
-	  searchInput.sendKeys(input);
-	  searchInput.click();
-	  searchInput.sendKeys(Keys.ENTER);
-	   
-	  try {
-		Thread.sleep(5000);
-	} catch (InterruptedException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}	
-	  return new SearchResultPage(driver);
-	  }  
-  
-  public void getSearchResults(){
-	  List<WebElement> resultList = driver.findElements(By.xpath("html/body/div[4]/div[1]/div[2]/div/div[2]/ul/li"));
-	  System.out.println("Number of search results are: " +  resultList.size());
-	  System.out.println("******************************************************************************************");
-	 
-	  for(WebElement e : resultList) {
-	    System.out.println(e.getText());	    
-	  }	  
-	}	  
   }
+  
+	public SearchResultsPage search(String input) {
+		WebElement searchInput = driver.findElement(By.name("q"));
+		searchInput.sendKeys(input);
+		searchInput.click();
+		searchInput.sendKeys(Keys.ENTER);
+		return new SearchResultsPage(driver);
+	}
+  
+}	  
+
   
 

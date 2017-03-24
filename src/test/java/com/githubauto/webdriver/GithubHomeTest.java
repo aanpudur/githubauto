@@ -15,7 +15,7 @@ public class GithubHomeTest {
 	public GithubHomeTest() {
 		driver = DriverBuilder.getDriver();
 	}
-
+	
 	String url = "https://github.com/";
 	String home = "The world's leading software development platform · GitHub";
 	String feature = "Search · Hibernate · GitHub";

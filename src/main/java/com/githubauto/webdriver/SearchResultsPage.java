@@ -60,8 +60,6 @@ public class SearchResultsPage {
 		public String getProjectTitle(){
 		return resultele.findElement(TEXT_LOCATOR).getText();
 			
-		}
-		
-	}
-	
+		}		
+	}	
 }
