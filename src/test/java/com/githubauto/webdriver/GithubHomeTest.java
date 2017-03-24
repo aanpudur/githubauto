@@ -1,5 +1,7 @@
 package com.githubauto.webdriver;
 
+import java.util.List;
+
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -16,38 +18,34 @@ public class GithubHomeTest {
 
 	String url = "https://github.com/";
 	String home = "The world's leading software development platform · GitHub";
-	String feature = "Features For Collaborative Coding - Developers Work Better, Together | GitHub · GitHub";
-	
+	String feature = "Search · Hibernate · GitHub";
+
 	@Ignore
 	public void verifyGithubTitleWithoutLogin() {
 		GithubHomePage homepage = new GithubHomePage(driver);
 		homepage.loadUrl(url);
-
 		String title = homepage.getTitle();
-		System.out.println(title);
 		Assert.assertEquals(home, title);
+		GithubHomePage home = new GithubHomePage(driver);
+		home.gotoFeatures();
 	}
-	
+
 	@Ignore
 	public void GithubFeaturesTest() {
-		GithubHomePage home = new GithubHomePage(driver);
-		home.loadUrl(url);
-		home.gotoFeatures();
-
 		GitHubFeatures featurePage = new GitHubFeatures(driver);
 		String actFeatureTitle = featurePage.getTitle();
-		Assert.assertEquals(feature, actFeatureTitle);
+		System.out.println(actFeatureTitle);
+		Assert.assertEquals(feature, actFeatureTitle);		
 	}
+
 	@Test
-	public void verifySeachReaults(){
+	public void verifySearchResult() {
 		GithubHomePage home = new GithubHomePage(driver);
-		home.loadUrl(url);
-		SearchPage page = new SearchPage(driver);
-		page.search("hibernate");
-		page.numberOfTitles();
-		page.getSearchResults();
-		
-						
+		home.loadUrl(url);		
+		SearchResultsPage resultsPage= home.search("Hibernate");
+		String projectTitle = resultsPage.getResult(0).getProjectTitle();
+		Assert.assertEquals("vireshmanagooli/hibernate", projectTitle);
+		Assert.assertEquals(10, resultsPage.numberOfTitle());
+		resultsPage.getSearchResults();
 	}
-	
 }

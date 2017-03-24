@@ -1,5 +1,6 @@
 package com.githubauto.webdriver;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -8,30 +9,59 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class SearchResultsPage {
-	WebDriver driver;
+	
+	private static final By TEXT_LOCATOR = By.tagName("h3");
+	private static final By RESULT_LOCATOR = By.cssSelector("div[class^='repo-list-item']");
+	//div[class$='codesearch-results pr-6']
+	//div.codesearch-results li
+	
+	private final WebDriver driver;
 
 	public SearchResultsPage(WebDriver driver) {
 		this.driver = driver;
 	}
 
-	public void loadUrl(String url) {
-		driver.get(url);
-	}
-
-	public void numberOfTitle() {
+	public int numberOfTitle() {
 		List<WebElement> resultList = driver
-				.findElements(By.xpath("//*[@id='js-pjax-container']/div[2]/div/div[2]/ul/li[*]"));
+				.findElements(RESULT_LOCATOR);
 		System.out.println("Number of search results are: " + resultList.size());
 		System.out.println("*************************************");
+		return resultList.size();
 	}
 
-	public List<WebElement> getSearchResults() {
+	public List<String> getSearchResults() {
 		List<WebElement> resultList = driver
-				.findElements(By.xpath("//*[@id='js-pjax-container']/div[2]/div/div[2]/ul/li[*]"));
+				.findElements(RESULT_LOCATOR);
+		List<String> titles = new ArrayList<>();
+		
 
 		for (WebElement element : resultList) {
-			System.out.println(element.findElement(By.tagName("h3")).getText());
+			String  title = element.findElement(TEXT_LOCATOR).getText();
+			titles.add(title);
+			System.out.println(title);
 		}
-		return resultList;
+		return titles;
 	}
+	
+	public Result getResult(int index){
+		WebElement resultele = driver.findElements(RESULT_LOCATOR).get(index);
+		return new Result(resultele);		
+	}
+	
+	//inner class
+	public static class Result{
+		
+		WebElement resultele;
+		
+		public Result(WebElement resultele) {
+			this.resultele = resultele;
+		}
+		
+		public String getProjectTitle(){
+		return resultele.findElement(TEXT_LOCATOR).getText();
+			
+		}
+		
+	}
+	
 }
