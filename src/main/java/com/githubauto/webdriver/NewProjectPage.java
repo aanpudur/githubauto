@@ -27,4 +27,5 @@ public class NewProjectPage {
 		driver.findElement(By.cssSelector(".repo")).click();
 		return new ProjectDeletionPage(driver);
 	}
+
 }

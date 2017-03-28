@@ -13,7 +13,6 @@ public class TestProjectCreationAndDeletion {
 	}
 
 	static String username = "gtestsatyam";
-	//wipauto123 (username)
 	static String password = "satyam123$";
 	static String url = "http://www.github.com";
 	String expectedTitle = "Create a New Repository";
