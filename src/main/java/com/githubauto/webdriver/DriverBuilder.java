@@ -45,6 +45,8 @@ public class DriverBuilder {
 		//System.setProperty("webdriver.gecko.driver", "/Users/aanvazhapilly/Downloads/geckodriver");
 		//System.setProperty(
 		 webDriver = new FirefoxDriver();
+		 webDriver.manage().timeouts().pageLodTimeout(30, TimeUnit.SECONDS);
+		 webDriver.manage().timeouts().implicatityWait(500, TimeUnit.MILLISECONDS);
 		return webDriver;
 	}*/
 
