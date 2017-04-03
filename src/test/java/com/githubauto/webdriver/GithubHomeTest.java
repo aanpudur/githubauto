@@ -15,7 +15,7 @@ public class GithubHomeTest {
 	public GithubHomeTest() {
 		driver = DriverBuilder.getDriver();
 	}
-	
+
 	String url = "https://github.com/";
 	String home = "The world's leading software development platform · GitHub";
 	String feature = "Search · Hibernate · GitHub";
@@ -35,14 +35,14 @@ public class GithubHomeTest {
 		GitHubFeatures featurePage = new GitHubFeatures(driver);
 		String actFeatureTitle = featurePage.getTitle();
 		System.out.println(actFeatureTitle);
-		Assert.assertEquals(feature, actFeatureTitle);		
+		Assert.assertEquals(feature, actFeatureTitle);
 	}
 
-	@Test
+	@Ignore
 	public void verifySearchResult() {
 		GithubHomePage home = new GithubHomePage(driver);
-		home.loadUrl(url);		
-		SearchResultsPage resultsPage= home.search("Hibernate");
+		home.loadUrl(url);
+		SearchResultsPage resultsPage = home.search("Hibernate");
 		String projectTitle = resultsPage.getResult(0).getProjectTitle();
 		Assert.assertEquals("vireshmanagooli/hibernate", projectTitle);
 		Assert.assertEquals(10, resultsPage.numberOfTitle());

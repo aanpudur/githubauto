@@ -27,7 +27,7 @@ public class TestProjectCreationAndDeletion {
 		NewProjectPage projectPage = userHome.gotoCreatingProjectPage();
 		projectPage.addingProjectNameAndDescription("GithubAutomationTraing", "Automation Training");
 }
-	@Test
+	@Ignore
 	public void testDeletingProject(){
 		driver.manage().deleteAllCookies();
 		driver.manage().deleteAllCookies();
